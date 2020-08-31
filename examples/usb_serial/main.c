@@ -24,8 +24,7 @@
 /*
  * Application entry point.
  */
-int
-main(void)
+int main(void)
 {
 
   /*
@@ -62,22 +61,22 @@ main(void)
    * Normal main() thread activity, in this demo it just performs
    * a shell respawn upon its termination.
    */
-  while (true) {
+  while (true)
+  {
 
     if (led_status)
     {
-      palSetPad(GPIOB, GPIOB_LED_STAT);     /* Blue.    */
+      palSetPad(GPIOB, GPIOB_LED_STAT); /* Blue.    */
     }
     else
     {
-      palClearPad(GPIOB, GPIOB_LED_STAT);   /* Blue.    */
+      palClearPad(GPIOB, GPIOB_LED_STAT); /* Blue.    */
     }
     led_status = !led_status;
 
-
-    palSetPad(GPIOB, GPIOB_LED_WARN);       /* Orange.  */
+    palSetPad(GPIOB, GPIOB_LED_WARN); /* Orange.  */
     osalThreadSleepMilliseconds(500);
-    palClearPad(GPIOB, GPIOB_LED_WARN);     /* Orange.  */
+    palClearPad(GPIOB, GPIOB_LED_WARN); /* Orange.  */
     osalThreadSleepMilliseconds(500);
 
     chnWriteTimeout(&SDU1, (uint8_t *)"Hello World!\r\n", 14, TIME_INFINITE);
